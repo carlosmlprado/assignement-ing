@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +44,7 @@ public class MortgageController {
             @ApiResponse(responseCode = "500", description = "Internal Server Error!",
                     content = @Content)})
     @PostMapping("/mortgage-check")
-    public ResponseEntity<MortgageCheckResponse> checkMortgagePossibility(@RequestBody MortgageRequest mortgageRequest) {
+    public ResponseEntity<MortgageCheckResponse> checkMortgagePossibility(@RequestBody @Valid MortgageRequest mortgageRequest) {
         var mortgageCheckResponse = mortgageService.checkMortgagePossibility(mortgageRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(mortgageCheckResponse);
     }

@@ -143,4 +143,60 @@ class MortgageControllerIntegrationTest {
                 .andExpect(status().isNotFound())
                 .andExpect(content().string("Maturity period not found!"));
     }
+
+    @Test
+    void shouldThrowBadRequestWhenIncomeIsMissing() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .maturityPeriod(26)
+                .loanValue(new BigDecimal("320000.00"))
+                .homeValue(new BigDecimal("320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldThrowBadRequestWhenLoanValueIsMissing() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .maturityPeriod(26)
+                .income(new BigDecimal("80000"))
+                .homeValue(new BigDecimal("320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldThrowBadRequestWhenHomeValueIsMissing() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .maturityPeriod(26)
+                .loanValue(new BigDecimal("320000.00"))
+                .income(new BigDecimal("80000"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldThrowBadRequestWhenMaturityPeriodIsMissing() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .income(new BigDecimal("80000"))
+                .loanValue(new BigDecimal("320000.00"))
+                .homeValue(new BigDecimal("320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
 } 
