@@ -1,0 +1,11 @@
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/MortgageApplication.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/MortgageController.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/MortgageDataInitializer.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/MortgageService.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/exception/LoanHigherThanHouseValueException.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/exception/LowIncomeForLoanException.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/exception/MaturityPeriodNotFoundException.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/exception/handler/ControllerExceptionHandler.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/model/request/MortgageRequest.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/model/response/MortgageCheckResponse.java
+/Users/carlosmlprado/Documents/assignment-mortgage-ing-2025/mortgage/src/main/java/com/ing/mortgage/model/response/MortgageRateResponse.java

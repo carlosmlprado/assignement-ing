@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "a1d089cc-df71-41e8-9fd0-d39818b25b79",
+		"name": "Mortgage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Interest Rates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/api/interest-rates"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Mortgage Check",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"income\": 80000,\n    \"loanValue\": 320000.00,\n    \"homeValue\": 320000.00,\n    \"maturityPeriod\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8081/api/mortgage-check"
+			},
+			"response": []
+		}
+	]
+}
