@@ -63,10 +63,10 @@ You can use Postman to try these APIs. Use the collection in `Mortgage.postman_c
    docker run -p 8081:8081 mortgage-app
 
    # Staging environment
-   docker run -e "SPRING_PROFILES_ACTIVE=stg" -p 8082:8082 mortgage-api
+   docker run -e "SPRING_PROFILES_ACTIVE=stg" -p 8082:8082 mortgage-app
 
    # Production environment
-   docker run -e "SPRING_PROFILES_ACTIVE=prd" -p 8083:8083 mortgage-api
+   docker run -e "SPRING_PROFILES_ACTIVE=prd" -p 8083:8083 mortgage-app
    ```
 
 ## Future Improvements
