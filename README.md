@@ -70,12 +70,13 @@ You can use Postman to try these APIs. Use the collection in `Mortgage.postman_c
    ```
 
 ## Future Improvements
-If I had more time and the application would evolve, I would:
+
 1. Create more endpoints:
-   - Retrieve mortgage by ID in case client wants to get it back
+   - Implement API versioning
+   - Create user management for mortgage checks
+   - Retrieve mortgage by ID/clientId in case client wants to get it back
    - Store rejection messages in the database
    - Calculate maximum loan amount based on annual income
-   - Create user management for mortgage checks
 
 2. Enhanced Features:
    - Integration with ING's interest rates API for automatic updates
@@ -85,5 +86,4 @@ If I had more time and the application would evolve, I would:
 3. Infrastructure:
    - Kubernetes deployment (Learning lesson)
    - OAuth2 and JWT security
-   - Monitoring dashboards (Kibana)
    - Advanced logging strategies (Datadog)
