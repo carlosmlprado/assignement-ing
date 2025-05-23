@@ -199,4 +199,48 @@ class MortgageControllerIntegrationTest {
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void shouldThrowBadRequestWhenNegativeIncome() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .maturityPeriod(5)
+                .income(new BigDecimal("-80000"))
+                .loanValue(new BigDecimal("320000.00"))
+                .homeValue(new BigDecimal("320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldThrowBadRequestWhenNegativeLoanValue() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .maturityPeriod(5)
+                .income(new BigDecimal("80000"))
+                .loanValue(new BigDecimal("-320000.00"))
+                .homeValue(new BigDecimal("320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldThrowBadRequestWhenNegativeHomeValue() throws Exception {
+        MortgageRequest request = MortgageRequest.builder()
+                .income(new BigDecimal("80000"))
+                .loanValue(new BigDecimal("320000.00"))
+                .homeValue(new BigDecimal("-320000.00"))
+                .build();
+
+        mockMvc.perform(post("/api/mortgage-check")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest());
+    }
 } 
